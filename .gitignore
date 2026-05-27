@@ -86,7 +86,7 @@ config/tasks.yaml   # if contains sensitive info
 reports/
 outputs/
 
-AGENTS.md
-final_report.md
-pyproject.toml
-uv.lock
+
+
+/AGENTS.md
+/final_report.md 
