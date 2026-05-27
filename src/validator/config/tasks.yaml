@@ -1,0 +1,186 @@
+CEO_task:
+  description: >
+    Analyze the startup idea: {topic} from the perspective of a visionary CEO.
+
+    Focus on:
+    - Core business idea
+    - Problem being solved
+    - Target audience
+    - Revenue model
+    - Business scalability
+    - Competitive advantage
+    - Long-term growth potential
+
+    Think like a practical founder building a scalable company.
+    Keep the analysis realistic, concise, and business-focused.
+
+    IMPORTANT:
+    - Do not over-explain.
+    - Keep the response under 400 words.
+    - Return structured markdown output only.
+    - Focus on execution practicality and profitability.
+
+  expected_output: >
+    Generate a markdown report with the heading "## CEO Analysis".
+    Include:
+    - Startup Overview
+    - Target Market
+    - Business Opportunity
+    - Monetization Strategy
+    - Scalability Potential
+    - Competitive Advantage
+    - Final CEO Opinion
+
+
+marketer_task:
+  description: >
+    Analyze the startup idea: {topic} from a marketing and market-research perspective.
+
+    Evaluate:
+    - Market demand
+    - Target customers
+    - Customer pain points
+    - Competitor landscape
+    - Branding potential
+    - Customer acquisition strategy
+    - Social media and digital marketing opportunities
+    - Market risks
+
+    Use internet research only to validate market trends and competitors, you can also give some values that you get from the tool.
+
+    Think like an experienced startup marketer focused on growth and customer psychology.
+
+    IMPORTANT:
+    - Use the search tool.
+    - Never output raw function calls.
+    - Keep the response under 500 words.
+    - Avoid repeating information from previous agents.
+    - Return clean markdown only.
+
+  expected_output: >
+    Generate a markdown report with the heading "## Marketing Analysis".
+    Include:
+    - Market Demand
+    - Target Audience
+    - Competitor Analysis
+    - Branding Potential
+    - Customer Acquisition Strategy
+    - Marketing Risks
+    - Final Marketing Opinion
+
+
+developer_task:
+  description: >
+    Analyze the startup idea: {topic} from a technical and engineering perspective.
+
+    Evaluate:
+    - Technical feasibility
+    - Recommended technology stack
+    - Backend and frontend requirements
+    - Infrastructure needs
+    - Scalability concerns
+    - Security challenges
+    - Development complexity
+    - Maintenance requirements
+
+    Use internet research only if required for validating technologies or industry standards.
+
+    Think like a senior software architect designing a scalable real-world startup.
+
+    IMPORTANT:
+    - Use the search tool 
+    - Never output raw function calls.
+    - Keep the response under 500 words.
+    - Avoid unnecessary technical jargon.
+    - Return only structured markdown output.
+
+  expected_output: >
+    Generate a markdown report with the heading "## Developer Analysis".
+    Include:
+    - Technical Feasibility
+    - Recommended Tech Stack
+    - System Architecture
+    - Scalability Concerns
+    - Security Challenges
+    - Development Complexity
+    - Technical Risks
+    - Final Technical Verdict
+
+
+vc_task:
+  description: >
+    Analyze the complete startup discussion for the idea: {topic}
+    using the outputs from the CEO, Marketer, and Developer agents.
+
+    Your job is to act like a ruthless venture capitalist evaluating
+    whether this startup deserves investment. Use the search tool for better understanding of the markets.
+
+    Evaluate:
+    - Profitability potential
+    - Market timing
+    - Scalability
+    - Competitive strength
+    - Execution difficulty
+    - Financial risks
+    - Technical risks
+    - Operational challenges
+    - Long-term sustainability
+
+    Summarize the opinions of all previous agents before giving
+    the final investment verdict.
+
+    Think critically and realistically.
+    Identify weaknesses aggressively before making a decision.
+
+    IMPORTANT:
+    - Do not repeat full reports from previous agents.
+    - Summarize previous outputs briefly.
+    - Keep the total response under 700 words.
+    - Return only structured markdown.
+    - Give a direct GO or NO-GO decision.
+
+  expected_output: >
+    expected_output: >
+    Generate a professional markdown report with the heading
+    "## Final Startup Validation Report".
+
+    The report must include these sections in order:
+
+    ## CEO Analysis
+    Write a detailed paragraph or in points explaining the business vision,
+    startup potential, scalability, monetization strategy,
+    competitive advantage, and long-term business viability.
+
+    ## Marketing Analysis
+    Write a detailed paragraph or in points explaining market demand,
+    customer pain points, competitor landscape, branding potential,
+    customer acquisition strategy, industry trends, and growth opportunities.
+
+    ## Developer Analysis
+    Write a detailed paragraph and you can give in points as well for explaining technical feasibility,
+    recommended technologies, infrastructure requirements,
+    scalability concerns, security challenges, development complexity,
+    and long-term maintainability. 
+
+    ## VC Verdict
+    Write a detailed investor-style paragraph or in points:
+    - investment potential
+    - profitability
+    - execution difficulty
+    - operational risks
+    - market timing
+    - scalability
+    - sustainability
+    - overall startup strength
+
+    End the report with a direct final investment decision:
+    GO or NO-GO,
+    followed by a realistic explanation supporting the verdict.
+
+    IMPORTANT:
+    - Keep the report detailed but concise
+    - Maintain a professional investor tone
+    - Do not generate bullet spam
+    - Prefer clean analytical paragraphs
+    - Preserve important insights from previous agents
+    - The final report should feel like a real startup investment evaluation
