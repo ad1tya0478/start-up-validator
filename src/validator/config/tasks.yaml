@@ -1,186 +1,372 @@
 CEO_task:
   description: >
-    Analyze the startup idea: {topic} from the perspective of a visionary CEO.
+    Analyze the startup idea: {topic} as a practical startup CEO.
 
-    Focus on:
-    - Core business idea
-    - Problem being solved
-    - Target audience
-    - Revenue model
-    - Business scalability
-    - Competitive advantage
-    - Long-term growth potential
+    Your responsibility:
+    - define the business model
+    - identify the core problem being solved
+    - identify target customers
+    - explain monetization
+    - evaluate scalability
+    - define competitive positioning
 
-    Think like a practical founder building a scalable company.
-    Keep the analysis realistic, concise, and business-focused.
+    Use the shared memory from previous discussions if available.
 
     IMPORTANT:
-    - Do not over-explain.
-    - Keep the response under 400 words.
-    - Return structured markdown output only.
-    - Focus on execution practicality and profitability.
+    - Focus only on business strategy.
+    - Do not discuss deep marketing or technical details.
+    - Keep the analysis realistic and execution-focused.
+    - Avoid startup buzzwords and hype.
+    - Directly challenge weak assumptions if found in memory.
+    - Keep output between 500 words only. 
+    - Return structured markdown only.
 
   expected_output: >
-    Generate a markdown report with the heading "## CEO Analysis".
-    Include:
+    Generate markdown with heading "## CEO Analysis".
+
+    Structure:
     - Startup Overview
-    - Target Market
-    - Business Opportunity
-    - Monetization Strategy
+    - Problem Statement
+    - Business Model
+    - Revenue Strategy
     - Scalability Potential
-    - Competitive Advantage
+    - Competitive Positioning
+    - Operational Challenges
     - Final CEO Opinion
+
+    Use short analytical paragraphs with minimal bullet points.
+  agent: CEO 
+
 
 
 marketer_task:
   description: >
-    Analyze the startup idea: {topic} from a marketing and market-research perspective.
+    Analyze the startup idea: {topic} as a senior startup marketer.
 
-    Evaluate:
-    - Market demand
-    - Target customers
-    - Customer pain points
-    - Competitor landscape
-    - Branding potential
-    - Customer acquisition strategy
-    - Social media and digital marketing opportunities
-    - Market risks
+    Use:
+    - shared memory
+    - previous agent outputs
+    - internet research
 
-    Use internet research only to validate market trends and competitors, you can also give some values that you get from the tool.
+    Your role:
+    - validate market demand
+    - analyze customer psychology
+    - identify competitors
+    - evaluate branding opportunities
+    - identify realistic customer acquisition channels
+    - identify market risks
 
-    Think like an experienced startup marketer focused on growth and customer psychology.
+    Critically challenge:
+    - unrealistic growth assumptions
+    - weak monetization claims
+    - poor customer targeting
 
     IMPORTANT:
-    - Use the search tool.
-    - Never output raw function calls.
-    - Keep the response under 500 words.
-    - Avoid repeating information from previous agents.
+    - Use the search tool ONLY for:
+      - market trends
+      - competitor validation
+      - industry growth signals
+    - Do not overuse search.
+    - Do not repeat CEO analysis.
+    - Reference previous agent claims when criticizing them.
+    - Keep output between 500 words only.
     - Return clean markdown only.
 
   expected_output: >
-    Generate a markdown report with the heading "## Marketing Analysis".
-    Include:
+    Generate markdown with heading "## Marketing Analysis".
+
+    Structure:
     - Market Demand
+    - Customer Pain Points
     - Target Audience
-    - Competitor Analysis
+    - Competitor Landscape
     - Branding Potential
     - Customer Acquisition Strategy
-    - Marketing Risks
+    - Market Risks
     - Final Marketing Opinion
+
+    Use concise analytical paragraphs with occasional bullet points.
+  agent: marketer
+
+marketer_critique_task:
+  description: >
+    Critically evaluate the startup idea and identify weaknesses
+    in the business and market strategy.
+
+    ```
+    Analyze:
+    - market demand
+    - customer pain points
+    - competition
+    - monetization
+    - customer acquisition difficulty
+    - scalability of the business model
+    - unrealistic assumptions
+
+    Use the CEO vision, marketing analysis, and developer analysis
+    as context before forming criticism.
+
+    Be skeptical, realistic, and direct.
+    Avoid repeating previous outputs unnecessarily.
+    ```
+  expected_output: >
+    A concise but detailed criticism report covering:
+    - market risks
+    - growth limitations
+    - monetization concerns
+    - customer acquisition challenges
+    - competitive threats
+    - unrealistic business assumptions
+    Keep the response structured and under 500 words.
+  agent: marketer
 
 
 developer_task:
   description: >
-    Analyze the startup idea: {topic} from a technical and engineering perspective.
+    Analyze the startup idea: {topic} as a senior software architect.
 
-    Evaluate:
-    - Technical feasibility
-    - Recommended technology stack
-    - Backend and frontend requirements
-    - Infrastructure needs
-    - Scalability concerns
-    - Security challenges
-    - Development complexity
-    - Maintenance requirements
+    Use:
+    - shared memory
+    - outputs from CEO and Marketer agents
 
-    Use internet research only if required for validating technologies or industry standards.
-
-    Think like a senior software architect designing a scalable real-world startup.
+    Your role:
+    - evaluate technical feasibility
+    - identify scalability concerns
+    - estimate infrastructure complexity
+    - identify security risks
+    - evaluate development cost and maintainability
+    - criticize unrealistic technical assumptions
 
     IMPORTANT:
-    - Use the search tool 
-    - Never output raw function calls.
-    - Keep the response under 500 words.
-    - Avoid unnecessary technical jargon.
-    - Return only structured markdown output.
+    - Do NOT use the search tool unless absolutely necessary.
+    - Prefer reasoning from engineering experience.
+    - Challenge fake AI claims or technically unrealistic promises.
+    - Reference previous agent claims directly when needed.
+    - Avoid excessive jargon.
+    - Keep output between 500 - 550 words.
+    - Return structured markdown only.
 
   expected_output: >
-    Generate a markdown report with the heading "## Developer Analysis".
-    Include:
+    Generate markdown with heading "## Developer Analysis".
+
+    Structure:
     - Technical Feasibility
     - Recommended Tech Stack
-    - System Architecture
-    - Scalability Concerns
-    - Security Challenges
+    - Infrastructure Requirements
+    - Scalability Challenges
+    - Security Concerns
     - Development Complexity
+    - Long-Term Maintenance
     - Technical Risks
     - Final Technical Verdict
+
+    Use analytical paragraphs with limited bullet points.
+  agent: developer
+
+
+developer_critique_task:
+  description: >
+    Critically evaluate the technical feasibility of the startup.
+
+    ```
+    Analyze:
+    - scalability problems
+    - engineering complexity
+    - infrastructure cost
+    - AI limitations
+    - security risks
+    - data availability issues
+    - maintenance difficulty
+    - unrealistic technical assumptions
+
+    Use the CEO vision, marketing analysis, and developer analysis
+    as context before forming criticism.
+
+    Be practical, skeptical, and technically realistic.
+    Avoid unnecessary repetition.
+    ```
+
+  expected_output: >
+    A structured technical criticism report covering:
+    - scalability concerns
+    - infrastructure and operational costs
+    - engineering risks
+    - AI and data limitations
+    - security concerns
+    - technical bottlenecks
+    - unrealistic implementation assumptions
+    Keep the response under 500 words.
+  agent: developer
+
+
+
+CEO_defense_task:
+  description: >
+    Defend the startup idea against the criticisms raised by
+    the marketer and developer agents.
+
+    ```
+    Address:
+    - market concerns
+    - competition concerns
+    - monetization concerns
+    - scalability concerns
+    - technical feasibility concerns
+    - execution risks
+
+    Justify why the startup can still succeed despite the risks.
+
+    Provide practical counterarguments, possible pivots,
+    mitigation strategies, and long-term vision.
+
+    Stay concise and avoid repeating the entire startup analysis.
+    ```
+
+  expected_output: >
+    A structured defense report that:
+    - responds to major criticisms
+    - explains mitigation strategies
+    - clarifies long-term vision
+    - defends business viability
+    - addresses technical concerns realistically
+    Keep the response under 500 words.
+  agent: CEO
+
 
 
 vc_task:
   description: >
-    Analyze the complete startup discussion for the idea: {topic}
-    using the outputs from the CEO, Marketer, and Developer agents.
+    Analyze the complete startup discussion for the idea: {topic}.
 
-    Your job is to act like a ruthless venture capitalist evaluating
-    whether this startup deserves investment. Use the search tool for better understanding of the markets.
+    ```
+    You are a skeptical venture capitalist making a realistic
+    investment decision after reviewing a multi-agent debate.
 
-    Evaluate:
-    - Profitability potential
-    - Market timing
-    - Scalability
-    - Competitive strength
-    - Execution difficulty
-    - Financial risks
-    - Technical risks
-    - Operational challenges
-    - Long-term sustainability
+    Use:
+    - outputs from all previous agents
+    - critique rounds
+    - CEO defense responses
+    - internet research with search tool 
 
-    Summarize the opinions of all previous agents before giving
-    the final investment verdict.
+    Your role:
+    - evaluate profitability
+    - analyze market timing
+    - evaluate scalability
+    - evaluate execution complexity
+    - identify operational risks
+    - identify weak assumptions
+    - analyze long-term sustainability
+    - evaluate founder feasibility
 
-    Think critically and realistically.
-    Identify weaknesses aggressively before making a decision.
+    Carefully review:
+    - CEO vision
+    - marketing analysis
+    - developer analysis
+    - marketer critiques
+    - developer critiques
+    - CEO defense responses
 
     IMPORTANT:
-    - Do not repeat full reports from previous agents.
-    - Summarize previous outputs briefly.
-    - Keep the total response under 700 words.
-    - Return only structured markdown.
-    - Give a direct GO or NO-GO decision.
+    - Do not repeat entire agent outputs.
+    - Summarize each agent briefly and focus on insights.
+    - Highlight major disagreements between agents.
+    - Evaluate whether the CEO defense successfully addresses criticisms.
+    - Provide your own investor opinion on the debate.
+    - Use the search tool ONLY for:
+      - market validation
+      - funding trends
+      - industry outlook
+    - Keep output between 900-1200 words.
+    - Maintain professional investor tone.
+    - Return markdown only.
+
+    End with a direct investment decision:
+    GO or NO-GO.
+    ```
 
   expected_output: >
-    expected_output: >
-    Generate a professional markdown report with the heading
-    "## Final Startup Validation Report".
+    Generate markdown with heading:
 
-    The report must include these sections in order:
+    ```
+    ## Final Startup Validation Report
 
-    ## CEO Analysis
-    Write a detailed paragraph or in points explaining the business vision,
-    startup potential, scalability, monetization strategy,
-    competitive advantage, and long-term business viability.
+    Structure:
 
-    ## Marketing Analysis
-    Write a detailed paragraph or in points explaining market demand,
-    customer pain points, competitor landscape, branding potential,
-    customer acquisition strategy, industry trends, and growth opportunities.
+    ## Executive Summary
+    Summarize the startup idea and overall evaluation.
 
-    ## Developer Analysis
-    Write a detailed paragraph and you can give in points as well for explaining technical feasibility,
-    recommended technologies, infrastructure requirements,
-    scalability concerns, security challenges, development complexity,
-    and long-term maintainability. 
+    ## CEO Analysis Summary
+    Summarize:
+    - business strategy
+    - monetization
+    - scalability vision
+    - operational viability
+
+    ## Marketing Analysis Summary
+    Summarize:
+    - market demand
+    - competitors
+    - customer acquisition
+    - branding opportunities
+    - market risks
+
+    ## Developer Analysis Summary
+    Summarize:
+    - technical feasibility
+    - scalability
+    - infrastructure complexity
+    - engineering risks
+
+    ## Critique Round Summary
+    Summarize the major criticisms raised by:
+    - marketer
+    - developer
+
+    Include:
+    - weak assumptions
+    - scalability concerns
+    - market concerns
+    - technical concerns
+    - operational concerns
+
+    ## CEO Defense Evaluation
+    Summarize how the CEO responded to criticisms.
+
+    Evaluate:
+    - whether the defense was convincing
+    - whether mitigation strategies were realistic
+    - whether major concerns remain unresolved
+
+    ## Key Contradictions
+    Identify disagreements or conflicting assumptions
+    between agents.
+
+    ## Risk Assessment
+    Analyze:
+    - financial risk
+    - operational risk
+    - technical risk
+    - market risk
+    - execution risk
 
     ## VC Verdict
-    Write a detailed investor-style paragraph or in points:
-    - investment potential
-    - profitability
-    - execution difficulty
-    - operational risks
-    - market timing
-    - scalability
-    - sustainability
-    - overall startup strength
+    Evaluate:
+    -profitability potential
+    -execution difficulty
+    -market timing
+    -scalability
+    -sustainability
+    -founder feasibility
 
-    End the report with a direct final investment decision:
-    GO or NO-GO,
-    followed by a realistic explanation supporting the verdict.
+    Include your own investor opinion on:
+    - the critique quality
+    - the CEO defense quality
+    - the overall viability of the startup
 
-    IMPORTANT:
-    - Keep the report detailed but concise
-    - Maintain a professional investor tone
-    - Do not generate bullet spam
-    - Prefer clean analytical paragraphs
-    - Preserve important insights from previous agents
-    - The final report should feel like a real startup investment evaluation
+    End with:
+
+    ## Final Decision
+
+    Clearly state:
+    GO or NO-GO
+  agent: vc
