@@ -42,7 +42,6 @@ class Validator():
     def vc(self) -> Agent:
         return Agent(
             config=self.agents_config["vc"],
-            tools=[search_tool]
         )
 
     # -------- Tasks --------
@@ -73,39 +72,39 @@ class Validator():
             ]
         )
     
-    @task
-    def marketer_critique_task(self) -> Task:
-        return Task(
-            config=self.tasks_config["marketer_critique_task"],
-            agent=self.marketer(),
-            context=[
-                self.CEO_task(),
-                self.developer_task()
-            ]
-        )
+    # @task
+    # def marketer_critique_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["marketer_critique_task"],
+    #         agent=self.marketer(),
+    #         context=[
+    #             self.CEO_task(),
+    #             self.developer_task()
+    #         ]
+    #     )
     
-    @task
-    def developer_critique_task(self) -> Task:
-        return Task(
-            config=self.tasks_config["developer_critique_task"],
-            agent=self.developer(),
-            context=[
-                self.CEO_task(),
-                self.marketer_task(),
-            ]
-        )
+    # @task
+    # def developer_critique_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["developer_critique_task"],
+    #         agent=self.developer(),
+    #         context=[
+    #             self.CEO_task(),
+    #             self.marketer_task(),
+    #         ]
+    #     )
     
-    @task
-    def CEO_defense_task(self) -> Task:
-        return Task(
-            config=self.tasks_config["CEO_defense_task"],
-            agent=self.CEO(),
-            context=[
-                self.CEO_task(),
-                self.marketer_critique_task(),
-                self.developer_critique_task()
-            ]
-        )
+    # @task
+    # def CEO_defense_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["CEO_defense_task"],
+    #         agent=self.CEO(),
+    #         context=[
+    #             self.CEO_task(),
+    #             self.marketer_critique_task(),
+    #             self.developer_critique_task()
+    #         ]
+    #     )
 
     @task
     def vc_task(self) -> Task:
@@ -116,11 +115,10 @@ class Validator():
                 self.CEO_task(),
                 self.marketer_task(),
                 self.developer_task(),
-                self.marketer_critique_task(),
-                self.developer_critique_task(),
-                self.CEO_defense_task()
-            ],
-            output_file="final_report.md"
+                # self.marketer_critique_task(),
+                # self.developer_critique_task(),
+                # self.CEO_defense_task()
+            ]
         )
 
     # -------- Crew --------

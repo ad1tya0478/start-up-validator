@@ -34,7 +34,21 @@ CEO_task:
     - Operational Challenges
     - Final CEO Opinion
 
-    Use short analytical paragraphs with minimal bullet points.
+    After the analysis, include:
+
+    ## CEO Evaluation Scores
+    Use search tool for this compulsory 
+
+    - Market Potential: X/10
+    - Scalability Potential: X/10
+    - Monetization Strength: X/10
+    - Operational Complexity: X/10
+
+    IMPORTANT:
+    - Scores must be realistic.
+    - Do not inflate scores.
+    - Keep explanations concise and analytical.
+    - Total output under 500 words.
   agent: CEO 
 
 
@@ -85,7 +99,21 @@ marketer_task:
     - Market Risks
     - Final Marketing Opinion
 
-    Use concise analytical paragraphs with occasional bullet points.
+    After the analysis, include:
+
+    ## Marketing Evaluation Scores
+    Use search tool for this compulsory. 
+
+    - Market Demand: X/10
+    - Customer Acquisition Difficulty: X/10
+    - Branding Potential: X/10
+    - Competition Risk: X/10
+
+    IMPORTANT:
+    - Keep scores practical and evidence-based.
+    - Avoid exaggerated optimism.
+    - Keep analysis concise and professional.
+    - Total output under 500 words.
   agent: marketer
 
 marketer_critique_task:
@@ -160,7 +188,22 @@ developer_task:
     - Technical Risks
     - Final Technical Verdict
 
-    Use analytical paragraphs with limited bullet points.
+    After the analysis, include:
+    Use search tool for this compulsory 
+
+    ## Technical Evaluation Scores
+
+    - Technical Feasibility: X/10
+    - Infrastructure Complexity: X/10
+    - Scalability Readiness: X/10
+    - Security Risk: X/10
+    - Execution Difficulty: X/10
+
+    IMPORTANT:
+    - Scores must reflect realistic engineering challenges.
+    - Criticize unrealistic AI assumptions when necessary.
+    - Keep output concise and practical.
+    - Total output under 550 words.
   agent: developer
 
 
@@ -287,81 +330,63 @@ vc_task:
   expected_output: >
     Generate markdown with heading:
 
-    ```
-    ## Final Startup Validation Report
+    ## VC Final Evaluation
 
     Structure:
 
-    ## Executive Summary
-    Summarize the startup idea and overall evaluation.
+    ## Key Strengths
+    Identify the strongest aspects of the startup.
 
-    ## CEO Analysis Summary
-    Summarize:
-    - business strategy
-    - monetization
-    - scalability vision
-    - operational viability
-
-    ## Marketing Analysis Summary
-    Summarize:
-    - market demand
-    - competitors
-    - customer acquisition
-    - branding opportunities
-    - market risks
-
-    ## Developer Analysis Summary
-    Summarize:
-    - technical feasibility
-    - scalability
-    - infrastructure complexity
-    - engineering risks
-
-    ## Critique Round Summary
-    Summarize the major criticisms raised by:
-    - marketer
-    - developer
-
-    Include:
-    - weak assumptions
-    - scalability concerns
-    - market concerns
-    - technical concerns
-    - operational concerns
-
-    ## CEO Defense Evaluation
-    Summarize how the CEO responded to criticisms.
-
-    Evaluate:
-    - whether the defense was convincing
-    - whether mitigation strategies were realistic
-    - whether major concerns remain unresolved
+    ## Major Weaknesses
+    Identify the biggest concerns and limitations.
 
     ## Key Contradictions
-    Identify disagreements or conflicting assumptions
+    Highlight disagreements or conflicting assumptions
     between agents.
+
+    ## CEO Defense Evaluation
+    Evaluate whether the CEO successfully addressed:
+    - market concerns
+    - scalability concerns
+    - monetization concerns
+    - technical concerns
+    - execution risks
 
     ## Risk Assessment
     Analyze:
-    - financial risk
-    - operational risk
-    - technical risk
     - market risk
-    - execution risk
+    - technical risk
+    - operational risk
+     - execution risk
+    - competition risk
 
-    ## VC Verdict
+    ## Startup Scorecard
+
+    Include realistic scores:
+
+    - Market Potential: X/10
+    - Technical Feasibility: X/10
+    - Scalability Potential: X/10
+    - Competition Risk: X/10
+    - Execution Difficulty: X/10
+    - Monetization Strength: X/10
+    - Customer Acquisition Difficulty: X/10
+
+    ## Overall Startup Evaluation
+
+    Include:
+    - Overall Startup Score: X/10
+    - Investment Probability: X%
+    - Failure Probability: X%
+
+    ## Final VC Verdict
+
     Evaluate:
-    -profitability potential
-    -execution difficulty
-    -market timing
-    -scalability
-    -sustainability
-    -founder feasibility
-
-    Include your own investor opinion on:
-    - the critique quality
-    - the CEO defense quality
-    - the overall viability of the startup
+    - profitability potential
+    - scalability
+    - sustainability
+    - execution realism
+    - long-term viability
 
     End with:
 
